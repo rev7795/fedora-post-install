@@ -34,28 +34,54 @@ dnf update -y
 ## rpm packages
 # microsoft fonts
 dnf install curl cabextract xorg-x11-font-utils fontconfig -y
-rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm #variabilize version
+# gnome-tweaks
+dnf install gnome-tweaks -y
 # gimp
 dnf install gimp -y
 # neofetch
 dnf install neofetch -y
-
-## flatpak packages
-# rambox
-# mailspring
+# megasync
 # microsoft-edge
 # nomachine
-# onlyoffice
-# spotify
-# extension manager
-# visual studio code
+# rambox
 
-## mms
-#conda
+## flatpak packages
+# extension manager
+flatpak install flathub com.mattjakeman.ExtensionManager -y
+# mailspring
+flatpak install flathub com.getmailspring.Mailspring -y
+# onlyoffice
+flatpak install flathub org.onlyoffice.desktopeditors -y
+# spotify
+flatpak install flathub com.spotify.Client -y
+# visual studio code
+flatpak install flathub com.visualstudio.code -y
+
+
+## MMS stuff
+# parallel
+dnf install parallel -y
+# ffmpeg
+dnf install ffmpeg -y
+# gnuplot
+dnf install gnuplot -y
+# openbabel
+dnf install openbabel -y
+# conda (latest version)
+version=$(wget https://repo.anaconda.com/archive/ -q -O- |\
+   grep 'Anaconda3'|\
+   sed -n 's|.*>Anaconda3-\([0-9]\{4\}\.[0-9]\{2\}\)-.*|\1|p' |\
+   uniq |\
+   sort -r |\
+   head -1)
+wget "https://repo.anaconda.com/archive/Anaconda3-$version-Linux-x86_64.sh"
+bash Anaconda3-$version-Linux-x86_64.sh
+rm Anaconda3-$version-Linux-x86_64.sh
 #chimera
+#plants
 #vmd
-#openbabel
-#parallel
-#ffmpeg
+
+
 
 
