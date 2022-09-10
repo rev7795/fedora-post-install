@@ -42,9 +42,30 @@ dnf install gimp -y
 # neofetch
 dnf install neofetch -y
 # megasync
+wget https://mega.nz/linux/repo/Fedora_36/x86_64/megasync-4.6.8-2.1.x86_64.rpm #variabilize version
+wget https://mega.nz/linux/repo/Fedora_36/x86_64/nautilus-megasync-3.6.6-2.1.x86_64.rpm #variabilize version
+dnf install libmediainfo libzen -y
+rpm -i megasync-4.6.8-2.1.x86_64.rpm
+rpm -i nautilus-megasync-3.6.6-2.1.x86_64.rpm
+rm megasync-4.6.8-2.1.x86_64.rpm nautilus-megasync-3.6.6-2.1.x86_64.rpm
 # microsoft-edge
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+dnf config-manager --add-repo https://packages.microsoft.com/yumrepos/edge
+dnf update --refresh
+dnf install microsoft-edge-stable -y
 # nomachine
+wget https://download.nomachine.com/download/7.10/Linux/nomachine_7.10.1_1_x86_64.rpm #variabilize version
+rpm -i nomachine_7.10.1_1_x86_64.rpm
+rm nomachine_7.10.1_1_x86_64.rpm
 # rambox
+wget https://github.com/ramboxapp/download/releases/download/v2.0.6/Rambox-2.0.6-linux-x64.rpm #variabilize version
+rpm -i Rambox-2.0.6-linux-x64.rpm
+rm Rambox-2.0.6-linux-x64.rpm
+# visual studio code
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+dnf check-update
+dnf install code -y
 
 ## flatpak packages
 # extension manager
@@ -55,8 +76,6 @@ flatpak install flathub com.getmailspring.Mailspring -y
 flatpak install flathub org.onlyoffice.desktopeditors -y
 # spotify
 flatpak install flathub com.spotify.Client -y
-# visual studio code
-flatpak install flathub com.visualstudio.code -y
 
 
 ## MMS stuff
