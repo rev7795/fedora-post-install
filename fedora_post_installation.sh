@@ -57,6 +57,10 @@ dnf install microsoft-edge-stable -y
 wget https://download.nomachine.com/download/7.10/Linux/nomachine_7.10.1_1_x86_64.rpm #variabilize version
 rpm -i nomachine_7.10.1_1_x86_64.rpm
 rm nomachine_7.10.1_1_x86_64.rpm
+# nordvpn
+wget https://repo.nordvpn.com/yum/nordvpn/centos/noarch/Packages/n/nordvpn-release-1.0.0-1.noarch.rpm #variabilize version
+rpm -i nordvpn-release-1.0.0-1.noarch.rpm
+rm nordvpn-release-1.0.0-1.noarch.rpm
 # rambox
 wget https://github.com/ramboxapp/download/releases/download/v2.0.6/Rambox-2.0.6-linux-x64.rpm #variabilize version
 rpm -i Rambox-2.0.6-linux-x64.rpm
